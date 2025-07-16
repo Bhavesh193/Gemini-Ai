@@ -28,7 +28,9 @@ This is a simple, responsive chat application built with **React** and **Tailwin
 ```bash
 git clone https://github.com/your-username/gemini-chat-app.git
 cd gemini-chat-app
-2. Install Dependencies
+```
+### 2. Install Dependencies
+```bash
 Using npm:
 
 bash
@@ -41,8 +43,9 @@ bash
 Copy
 Edit
 yarn install
-3. Run Development Server
-bash
+```
+### 3. Run Development Server
+```bash
 Copy
 Edit
 npm run dev
@@ -88,9 +91,10 @@ gemini-chat-app/
 ├── package.json
 ├── tailwind.config.js
 └── postcss.config.js
+```
 
+###💡 Implementation Details
 
-💡 Implementation Details
 🔁 Throttling
 Implemented in DashboardSidebar.jsx for chatroom search.
 
