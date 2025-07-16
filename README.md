@@ -32,33 +32,18 @@ cd gemini-chat-app
 ### 2. Install Dependencies
 ```bash
 Using npm:
-
-bash
-Copy
-Edit
 npm install
 Or with yarn:
-
-bash
-Copy
-Edit
 yarn install
 ```
 ### 3. Run Development Server
 ```bash
-Copy
-Edit
 npm run dev
 Or:
-
-bash
-Copy
-Edit
 yarn dev
  ```
 
-## 📁 Folder & Component Structure
-
+### 📁 Folder & Component Structure
 ```bash
 gemini-chat-app/
 ├── public/
@@ -94,12 +79,11 @@ gemini-chat-app/
 ```
 
 ###💡 Implementation Details
-
+```bash
 🔁 Throttling
 Implemented in DashboardSidebar.jsx for chatroom search.
-
 Uses setTimeout (300ms delay) to debounce input and reduce re-renders.
-
+```
 📜 Pagination & Infinite Scroll (Simulated)
 Handled in ChatroomContent.jsx.
 
