@@ -1,25 +1,41 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from 'react-toastify';
-import { ChatroomContext } from './contexts/ChatroomContext.jsx';
-import { AuthContext } from './contexts/AuthContext.jsx';
-import { ThemeContext } from './contexts/ThemeContext.jsx';
-import { CreateChatroomSchema } from './schemas/ValidationSchemas.jsx';
-import { Plus, Trash, Search, LogOut, UserX, Sun, Moon } from './components/Icons.jsx';
-import { ChatroomListSkeleton } from './components/Skeletons/ChatroomListSkeleton.jsx';
-import { CreateChatroomModal } from './components/Modals/CreateChatroomModal.jsx';
-import { ConfirmDeleteModal } from './components/Modals/ConfirmDeleteModal.jsx';
+import React, { useState, useEffect, useContext } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
+import { ChatroomContext } from "./contexts/ChatroomContext.jsx";
+import { AuthContext } from "./contexts/AuthContext.jsx";
+import { ThemeContext } from "./contexts/ThemeContext.jsx";
+import { CreateChatroomSchema } from "./schemas/ValidationSchemas.jsx";
+import {
+  Plus,
+  Trash,
+  Search,
+  LogOut,
+  UserX,
+  Sun,
+  Moon,
+} from "./components/Icons.jsx";
+import { ChatroomListSkeleton } from "./components/Skeletons/ChatroomListSkeleton.jsx";
+import { CreateChatroomModal } from "./components/Modals/CreateChatroomModal.jsx";
+import { ConfirmDeleteModal } from "./components/Modals/ConfirmDeleteModal.jsx";
 
 export const DashboardSidebar = () => {
-  const { chatrooms, addChatroom, deleteChatroom, setCurrentChatroom, loadingChatrooms, currentChatroom } = useContext(ChatroomContext); 
+  const {
+    chatrooms,
+    addChatroom,
+    deleteChatroom,
+    setCurrentChatroom,
+    loadingChatrooms,
+    currentChatroom,
+  } = useContext(ChatroomContext);
   const { user, logout, deleteAccountAndData } = useContext(AuthContext);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [isConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen] =
+    useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   const {
     register,
@@ -54,30 +70,33 @@ export const DashboardSidebar = () => {
     setIsConfirmDeleteModalOpen(false);
   };
 
-  const filteredChatrooms = chatrooms.filter(room =>
+  const filteredChatrooms = chatrooms.filter((room) =>
     room.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
   );
 
-  if (currentChatroom && window.innerWidth < 768) { 
+  if (currentChatroom && window.innerWidth < 768) {
     return null;
   }
 
   return (
-    <div className="flex flex-col h-full p-4 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 overflow-y-auto w-full"> 
+    <div className="flex flex-col h-full p-4 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 overflow-y-auto w-full">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Chatrooms</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Chatrooms
+        </h2>
         <button
           onClick={toggleTheme}
           className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:scale-105 transition-transform"
           aria-label="Toggle dark mode"
         >
-          {theme === 'light' ? <Moon /> : <Sun />}
+          {theme === "light" ? <Moon /> : <Sun />}
         </button>
       </div>
 
       {user && user.phoneNumber && (
         <div className="mb-4 text-sm text-gray-600 dark:text-gray-300 break-all">
-          Logged in as: <span className="font-semibold">{user.phoneNumber}</span>
+          Logged in as:{" "}
+          <span className="font-semibold">{user.phoneNumber}</span>
         </div>
       )}
 
@@ -106,34 +125,32 @@ export const DashboardSidebar = () => {
       <div className="flex-1 overflow-y-auto pr-2 -mr-2 scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
         {loadingChatrooms ? (
           <ChatroomListSkeleton />
+        ) : filteredChatrooms.length === 0 ? (
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
+            No chatrooms found. Create one to start!
+          </p>
         ) : (
-          filteredChatrooms.length === 0 ? (
-            <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
-              No chatrooms found. Create one to start!
-            </p>
-          ) : (
-            filteredChatrooms.map((room) => (
-              <div
-                key={room.id}
-                className="flex items-center justify-between p-3 mb-2 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+          filteredChatrooms.map((room) => (
+            <div
+              key={room.id}
+              className="flex items-center justify-between p-3 mb-2 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+            >
+              <button
+                onClick={() => setCurrentChatroom(room)}
+                className="flex-1 text-left text-base font-medium text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-1 -ml-1 truncate"
+                aria-label={`Open chatroom ${room.title}`}
               >
-                <button
-                  onClick={() => setCurrentChatroom(room)}
-                  className="flex-1 text-left text-base font-medium text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-1 -ml-1 truncate"
-                  aria-label={`Open chatroom ${room.title}`}
-                >
-                  {room.title}
-                </button>
-                <button
-                  onClick={() => deleteChatroom(room.id)}
-                  className="p-1 rounded-full text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-700 transition-colors duration-200"
-                  aria-label={`Delete chatroom ${room.title}`}
-                >
-                  <Trash className="w-5 h-5" />
-                </button>
-              </div>
-            ))
-          )
+                {room.title}
+              </button>
+              <button
+                onClick={() => deleteChatroom(room.id)}
+                className="p-1 rounded-full text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-700 transition-colors duration-200"
+                aria-label={`Delete chatroom ${room.title}`}
+              >
+                <Trash className="w-1 h-1" />
+              </button>
+            </div>
+          ))
         )}
       </div>
 
