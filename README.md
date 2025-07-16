@@ -119,9 +119,9 @@ Implemented using **`react-hook-form`** and **`zod`**.
  <img width="1919" height="912" alt="Screenshot 2025-07-16 153912" src="https://github.com/user-attachments/assets/ca5c9732-31a2-4ae3-9af0-bce766cb84a8" />
 
 ### 🌓 Delete account
-<img width="1919" height="912" alt="Screenshot 2025-07-16 153912" src="https://github.com/user-attachments/assets/4e86874e-9650-465e-99fa-d3b1975529d3" />
+<img width="1919" height="905" alt="Screenshot 2025-07-16 153937" src="https://github.com/user-attachments/assets/3754c301-ec2f-4a81-b212-ae4b6501ab40" />
 
 ### 📱 Mobile View
-<img width="620" height="895" alt="Screenshot 2025-07-16 154124" src="https://github.com/user-attachments/assets/de42cc70-5419-44af-9ede-8c17c44bef48" />
+<img width="600" height="650" alt="Screenshot 2025-07-16 154124" src="https://github.com/user-attachments/assets/de42cc70-5419-44af-9ede-8c17c44bef48" />
 
 
