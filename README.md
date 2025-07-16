@@ -109,8 +109,10 @@ Implemented using **`react-hook-form`** and **`zod`**.
 
 ### 📸 Screenshots
 
-| Login Page | Chatroom | Dark Mode |
+| Login Page | OTP Verification | ChatRoom| 
 |------------|----------|-----------|
-| ![Login](./screenshots/login.png) | ![Chatroom](./screenshots/chatroom.png) | ![Dark](./screenshots/darkmode.png) |
+| <img width="1919" height="906" alt="Screenshot 2025-07-16 153612" src="https://github.com/user-attachments/assets/1a2923a0-012b-4ba2-acd5-32fe3636e084" />
+ |<img width="1698" height="781" alt="Screenshot 2025-07-16 153808" src="https://github.com/user-attachments/assets/d934fedb-620f-4d6d-baa2-f87a9cfce1bd" />
+ | <img width="1919" height="912" alt="Screenshot 2025-07-16 153912" src="https://github.com/user-attachments/assets/ca5c9732-31a2-4ae3-9af0-bce766cb84a8" />
+ |
 
-> Make sure to place your screenshots inside a `/screenshots/` folder at the root of your project.
