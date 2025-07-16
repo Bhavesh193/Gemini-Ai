@@ -107,14 +107,6 @@ Implemented using **`react-hook-form`** and **`zod`**.
 
 ---
 
-### 📸 Screenshots
-
-| Login Page | OTP Verification | ChatRoom| 
-|------------|----------|-----------|
-| <img width="1919" height="906" alt="Screenshot 2025-07-16 153612" src="https://github.com/user-attachments/assets/1a2923a0-012b-4ba2-acd5-32fe3636e084" />
- |<img width="1698" height="781" alt="Screenshot 2025-07-16 153808" src="https://github.com/user-attachments/assets/d934fedb-620f-4d6d-baa2-f87a9cfce1bd" />
- |
- |
 ## 📸 Screenshots
 
 ### 🔐 Login Page
