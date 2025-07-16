@@ -54,10 +54,9 @@ Edit
 yarn dev
  ```
 
-📁 Folder & Component Structure
-graphql
-Copy
-Edit
+## 📁 Folder & Component Structure
+
+```bash
 gemini-chat-app/
 ├── public/
 │   └── vite.svg                     # Public assets
@@ -74,21 +73,23 @@ gemini-chat-app/
 │   │   ├── AuthContext.jsx         # Phone number login state
 │   │   ├── ChatroomContext.jsx     # Manages chatrooms & messages
 │   │   └── ThemeContext.jsx        # Dark/light mode toggle
-│   ├── schemas/
-│   │   └── ValidationSchemas.jsx   # Zod schemas for validation
+│   ├── schemas/                    # Zod schemas for form validation
+│   │   └── ValidationSchemas.jsx
 │   ├── utils/
 │   │   └── MarkdownFormatter.jsx   # Markdown to HTML converter
-│   ├── App.jsx                     # App component + routing
+│   ├── App.jsx                     # Main app component + routing
 │   ├── AuthScreen.jsx              # Login screen
-│   ├── ChatroomContent.jsx         # Message display + input
-│   ├── DashboardSidebar.jsx        # Sidebar: chatrooms, search, user menu
-│   ├── index.css                   # Tailwind & custom styles
-│   ├── index.jsx                   # Root with context providers
-│   └── main.jsx                    # Entry point (ReactDOM)
+│   ├── ChatroomContent.jsx         # Chat message interface
+│   ├── DashboardSidebar.jsx        # Chatroom list and user actions
+│   ├── index.css                   # TailwindCSS styles
+│   ├── index.jsx                   # Context provider root
+│   └── main.jsx                    # App entry point (ReactDOM)
 ├── index.html
 ├── package.json
 ├── tailwind.config.js
 └── postcss.config.js
+
+
 💡 Implementation Details
 🔁 Throttling
 Implemented in DashboardSidebar.jsx for chatroom search.
