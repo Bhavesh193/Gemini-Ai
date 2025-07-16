@@ -26,8 +26,8 @@ This is a simple, responsive chat application built with **React** and **Tailwin
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/gemini-chat-app.git
-cd gemini-chat-app
+git clone https://github.com/Bhavesh193/Gemini-Ai.git
+cd Gemini-Ai.git
 ```
 ### 2. Install Dependencies
 ```bash
