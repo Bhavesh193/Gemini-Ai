@@ -43,7 +43,7 @@ Or:
 yarn dev
  ```
 
-### 📁 Folder & Component Structure
+## 📁 Folder & Component Structure
 ```bash
 gemini-chat-app/
 ├── public/
@@ -78,28 +78,39 @@ gemini-chat-app/
 └── postcss.config.js
 ```
 
-###💡 Implementation Details
-```bash
-🔁 Throttling
-Implemented in DashboardSidebar.jsx for chatroom search.
-Uses setTimeout (300ms delay) to debounce input and reduce re-renders.
-```
-📜 Pagination & Infinite Scroll (Simulated)
-Handled in ChatroomContent.jsx.
+## 💡 Implementation Details
 
-Loads 20 messages at a time.
+### 🔁 Throttling
+Implemented in `DashboardSidebar.jsx` for chatroom search.  
+Uses `setTimeout` with a **300ms delay** to debounce input and reduce unnecessary re-renders, improving performance.
 
-When the user scrolls to the top, a delay (setTimeout) simulates loading older messages.
+---
 
-Loading skeletons appear during fetch.
+### 📜 Pagination & Infinite Scroll (Simulated)
+Handled in `ChatroomContent.jsx`.
 
-✅ Form Validation
-Uses react-hook-form + zod for validation.
+- Loads **20 messages** at a time.
+- When the user scrolls to the top, a `setTimeout` simulates loading older messages.
+- Displays **loading skeletons** during the message fetch process.
 
-Schemas are defined in ValidationSchemas.jsx.
+---
 
-Validates phone number, OTP, and chatroom title.
+### ✅ Form Validation
+Implemented using **`react-hook-form`** and **`zod`**.
 
-Error messages shown via react-hook-form and toasts.
+- Validation schemas are defined in `ValidationSchemas.jsx`.
+- Validates:
+  - Phone number
+  - OTP
+  - Chatroom title
+- Displays user-friendly error messages via `react-hook-form` and **toast notifications**.
 
-📸 Screenshots
+---
+
+### 📸 Screenshots
+
+| Login Page | Chatroom | Dark Mode |
+|------------|----------|-----------|
+| ![Login](./screenshots/login.png) | ![Chatroom](./screenshots/chatroom.png) | ![Dark](./screenshots/darkmode.png) |
+
+> Make sure to place your screenshots inside a `/screenshots/` folder at the root of your project.
